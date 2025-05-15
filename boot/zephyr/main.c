@@ -605,6 +605,10 @@ int main(void)
 #endif
 #endif /* USE_PARTITION_MANAGER && CONFIG_FPROTECT */
 
+// Set the bootloader version enum in register for the application to pick up
+#define DEVICEDEVICE_INFO_BOOTLOADER_VERSION_1 (1)
+    NRF_POWER->GPREGRET[0] = DEVICEDEVICE_INFO_BOOTLOADER_VERSION_1;
+
     ZEPHYR_BOOT_LOG_STOP();
 
     do_boot(&rsp);
